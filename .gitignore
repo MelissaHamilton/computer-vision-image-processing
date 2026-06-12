@@ -1,0 +1,9 @@
+# local README preview, not needed on GitHub
+preview.html
+
+# editor config
+.vscode/
+
+# python
+__pycache__/
+*.pyc
