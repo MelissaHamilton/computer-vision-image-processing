@@ -53,7 +53,14 @@ sharpen_kernel = np.array([[0, -1, 0],
 sharpened = cv2.filter2D(image, -1, sharpen_kernel)
 ```
 
-Two things that bite everyone learning OpenCV. It stores color as BGR, not RGB,
-so red and blue swap if you forget. And `cv2.imread` returns `None` on a bad
-path instead of raising, so the script checks for that and stops with a clear
+Two OpenCV quirks worth knowing. It stores color as BGR, not RGB — the opposite
+channel order most libraries use. And `cv2.imread` returns `None` on a bad path
+instead of raising an error, so the script checks for that and stops with a clear
 message.
+
+## Make it your own
+
+Swap `sc.jpg` for any image, or change a filter by editing its kernel in
+`side_by_side.py`. The sharpen kernel above is just nine numbers — bump the
+center value for a harder edge, or shrink the `(15, 15)` blur kernel to soften
+the effect less. Each filter is one `cv2` call, so adding a seventh is a one-liner.
